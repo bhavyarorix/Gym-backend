@@ -41,29 +41,29 @@ export class AuthController {
     }
   }
 
-  async getProfile(req: Request, res: Response) {
-    try {
-      const userId = req.user?.id;
+  // async getProfile(req: Request, res: Response) {
+  //   try {
+  //     const userId = req.user?.id;
       
-      if (!userId) {
-        return res.status(401).json({
-          success: false,
-          message: MESSAGES.AUTH.UNAUTHORIZED
-        });
-      }
+  //     if (!userId) {
+  //       return res.status(401).json({
+  //         success: false,
+  //         message: MESSAGES.AUTH.UNAUTHORIZED
+  //       });
+  //     }
 
-      const user = await authService.getUserById(userId);
+  //     const user = await authService.getUserById(userId);
 
-      return res.status(200).json({
-        success: true,
-        data: user
-      });
-    } catch (error: any) {
-      return res.status(404).json({
-        success: false,
-        message: error.message || 'Failed to fetch profile',
-        error: error.message
-      });
-    }
-  }
+  //     return res.status(200).json({
+  //       success: true,
+  //       data: user
+  //     });
+  //   } catch (error: any) {
+  //     return res.status(404).json({
+  //       success: false,
+  //       message: error.message || 'Failed to fetch profile',
+  //       error: error.message
+  //     });
+  //   }
+  // }
 }
